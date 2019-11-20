@@ -8,3 +8,6 @@
 .classpath
 .settings
 */.settings/*
+*/node_modules/
+*/.cache/
+*/dist/
