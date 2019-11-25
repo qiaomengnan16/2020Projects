@@ -81,15 +81,25 @@ window.onbeforeunload = () => {
     localStorage.setItem('hashMapData',string)
 }
 
+let input = true
+
+$('.input').on('focus',() => {
+    input = false
+})
+
+$('.input').on('blur',() => {
+    input = true
+})
 
 $(document).on('keypress',(e) => {
-    const {key} = e
-    for(let i = 0 ; i < hashMap.length ; i++) {
-        if(hashMap[i].logo.toLowerCase() === key) {
-            window.open(hashMap[i].url)
+    if(input) {
+        const {key} = e
+        for(let i = 0 ; i < hashMap.length ; i++) {
+            if(hashMap[i].logo.toLowerCase() === key) {
+                window.open(hashMap[i].url)
+            }
         }
     }
-
 })
 
 
